@@ -1,14 +1,89 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
+.canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
+  background-size: cover;
+  background-position: center 75%;
+  background-image: url("background-hero.png");
 }
-canvas {
-  position: absolute;
+svg {
+  width: 100%;
+  height: 100%;
+}
+.beams {
+  -webkit-transform-origin: 29% 68%;
+          transform-origin: 29% 68%;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+}
+.flash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.beams,
+.pokeball,
+.pikachu,
+.pikachu-morph-1,
+.pikachu-morph-2 {
+  visibility: hidden;
+}
+.instructions {
+  font-family: monospace;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 1em 0;
+  margin: 0;
+}
+.pokeball.pulsing .pokeball-circle {
+  cursor: pointer;
+  transition: 150ms ease-in-out;
+}
+.pokeball.pulsing .pokeball-circle:hover {
+  fill: #d19fa0 !important;
+}
+.pokeball.pulsing .pokeball-circle-pulse {
+  stroke: #00b753;
+  -webkit-transform-origin: 193.9px 470.5px;
+          transform-origin: 193.9px 470.5px;
+  -webkit-animation: circlePulse 2s infinite;
+          animation: circlePulse 2s infinite;
+}
+@-webkit-keyframes circlePulse {
+  0% {
+    stroke-width: 5px;
+    stroke-opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  40%, 100% {
+    stroke-width: 0;
+    stroke-opacity: 0;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+}
+@keyframes circlePulse {
+  0% {
+    stroke-width: 5px;
+    stroke-opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  40%, 100% {
+    stroke-width: 0;
+    stroke-opacity: 0;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
 }
